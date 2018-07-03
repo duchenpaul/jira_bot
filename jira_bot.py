@@ -164,7 +164,7 @@ class Jira():
 
 		resp = self.webpage_post(url, data, headers)
 		respJson = json.loads(resp.content.decode('utf-8'))
-		issueKey = respJson['issueKey']
+		issueKey = respJson.get('issueKey')
 		if issueKey:
 			print('Ticket has been creaeted as {}'.format(issueKey))
 		else:
